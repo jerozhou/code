@@ -6,7 +6,7 @@ for L= 1:2048
     end
     for n=1:length(positions)
         if abs(stego_blk_dct{i,L}(positions(n),1))==1 && abs(stego_blk_dct{i,L}(positions(n),2))==1
-            if pos == l_data - 1
+            if pos == l_data - 1 && data(pos+1) == 1
             data = [data,0];
             end
             if data(pos+1) == 1 && data(pos+2) == 1
@@ -51,7 +51,7 @@ for L= 1:2048
             end        
         elseif abs(stego_blk_dct{i,L}(positions(n),1))==0 && abs(stego_blk_dct{i,L}(positions(n),2))==0
                 continue;
-        else  % ÒÆÎ»¶Ô
+        else  % Ã’Ã†ÃŽÂ»Â¶Ã”
             stego_blk_dct{i,L}(positions(n),1) = stego_blk_dct{i,L}(positions(n),1) + sign(stego_blk_dct{i,L}(positions(n),1));
             stego_blk_dct{i,L}(positions(n),2) = stego_blk_dct{i,L}(positions(n),2) + sign(stego_blk_dct{i,L}(positions(n),2));
         end
